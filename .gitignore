@@ -8,3 +8,5 @@ target/
 chero_sac_neon.sql
 .DS_Store
 Thumbs.db
+
+target/

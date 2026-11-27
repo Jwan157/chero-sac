@@ -1,6 +1,0 @@
-<c:choose>
-    <c:when test="${empty sessionScope.cliente}"><li class="nav-item"><a class="nav-link" href="${ctx}/cliente">Mi cuenta</a></li></c:when>
-    <c:otherwise><li class="nav-item"><a class="nav-link" href="${ctx}/seguimiento">Mis pedidos</a></li>
-    <li class="nav-item"><form method="post" action="${ctx}/cliente">
-            <input type="hidden" name="csrf" value="${sessionScope.csrf}"><input type="hidden" name="accion" value="salir"><button class="nav-link btn btn-link">Salir</button></form></li></c:otherwise>
-</c:choose>
