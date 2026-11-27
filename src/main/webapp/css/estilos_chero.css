@@ -1,0 +1,990 @@
+/* =====================================================================
+   CHERO.SAC - Hoja de estilos
+   Estetica gamer / hardware profesional.
+   Fondo claro #F4F6F9 · barras y tarjetas Negro Carbon #0D0F12
+   Acentos Rojo Carmesi Tecnologico #D91B38
+   Tipografia: Plus Jakarta Sans (texto) y JetBrains Mono (codigos, series y precios)
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+    --cs-fondo: #F4F6F9;
+    --cs-carbon: #0D0F12;
+    --cs-carbon-2: #181B21;
+    --cs-borde: #2A2E36;
+    --cs-rojo: #D91B38;
+    --cs-rojo-oscuro: #A8142B;
+    --cs-rojo-claro: #FF5A73;
+    --cs-texto: #15171C;
+    --cs-texto-suave: #5B6270;
+    --cs-texto-carbon: #9AA3B2;
+    --cs-verde: #13803F;
+    --cs-ambar: #B7791F;
+    --cs-azul: #1D4ED8;
+    --cs-violeta: #6D28D9;
+    --cs-gris: #6B7280;
+    --cs-fuente: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --cs-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --cs-radio: 14px;
+    --cs-sombra: 0 6px 18px rgba(13, 15, 18, 0.10);
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    background: var(--cs-fondo);
+    color: var(--cs-texto);
+    font-family: var(--cs-fuente);
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+}
+
+.cs-contenido {
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.cs-mono {
+    font-family: var(--cs-mono);
+}
+
+.cs-texto-suave {
+    color: var(--cs-texto-suave);
+}
+
+/* ---------- Barra de navegacion ---------- */
+.cs-navbar {
+    background: var(--cs-carbon);
+    border-bottom: 3px solid var(--cs-rojo);
+}
+
+.cs-navbar .navbar-brand {
+    color: #FFFFFF;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.cs-brand-punto {
+    color: var(--cs-rojo-claro);
+}
+
+.cs-navbar .nav-link {
+    color: #C9CED6;
+    font-weight: 600;
+}
+
+.cs-navbar .nav-link:hover,
+.cs-navbar .nav-link.activo {
+    color: #FFFFFF;
+}
+
+.cs-navbar .nav-link.activo {
+    box-shadow: inset 0 -3px 0 var(--cs-rojo);
+}
+
+.cs-tag-admin {
+    font-family: var(--cs-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: var(--cs-rojo);
+    color: #FFFFFF;
+    padding: 0.2em 0.5em;
+    border-radius: 6px;
+}
+
+/* ---------- Encabezados y paneles ---------- */
+.cs-hero {
+    background: var(--cs-carbon);
+    color: #FFFFFF;
+    border-radius: var(--cs-radio);
+    padding: 1.75rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.cs-hero::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 26px solid var(--cs-rojo);
+    opacity: 0.18;
+}
+
+.cs-hero h1 {
+    font-weight: 800;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    margin-bottom: 0.25rem;
+}
+
+.cs-eyebrow {
+    font-family: var(--cs-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--cs-rojo-claro);
+}
+
+.cs-card {
+    background: var(--cs-carbon);
+    color: #FFFFFF;
+    border: 1px solid var(--cs-borde);
+    border-radius: var(--cs-radio);
+    box-shadow: var(--cs-sombra);
+}
+
+.cs-card .text-muted {
+    color: var(--cs-texto-carbon) !important;
+}
+
+.cs-panel {
+    background: #FFFFFF;
+    border: 1px solid #E3E7EE;
+    border-radius: var(--cs-radio);
+    box-shadow: var(--cs-sombra);
+    padding: 1.25rem;
+}
+
+.cs-panel h2,
+.cs-panel h3 {
+    font-weight: 800;
+    font-size: 1.15rem;
+}
+
+/* ---------- Botones ---------- */
+.btn-cs {
+    background: var(--cs-rojo);
+    border: 2px solid var(--cs-rojo);
+    color: #FFFFFF;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+.btn-cs:hover,
+.btn-cs:focus {
+    background: var(--cs-rojo-oscuro);
+    border-color: var(--cs-rojo-oscuro);
+    color: #FFFFFF;
+}
+
+.btn-cs:disabled {
+    background: #8A8F99;
+    border-color: #8A8F99;
+}
+
+.btn-cs-outline {
+    background: transparent;
+    border: 2px solid var(--cs-rojo);
+    color: var(--cs-rojo);
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+.btn-cs-outline:hover {
+    background: var(--cs-rojo);
+    color: #FFFFFF;
+}
+
+.btn-cs-negro {
+    background: var(--cs-carbon);
+    border: 2px solid var(--cs-carbon);
+    color: #FFFFFF;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+.btn-cs-negro:hover {
+    background: var(--cs-carbon-2);
+    color: #FFFFFF;
+}
+
+/* ---------- Formularios ---------- */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--cs-rojo);
+    box-shadow: 0 0 0 0.2rem rgba(217, 27, 56, 0.2);
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ---------- Productos ---------- */
+.cs-producto {
+    transition: transform 0.15s ease, border-color 0.15s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.cs-producto:hover {
+    transform: translateY(-3px);
+    border-color: var(--cs-rojo);
+}
+
+.cs-producto-img {
+    width: 100%;
+    height: 190px;
+    object-fit: contain;
+    object-position: center;
+    padding: 10px;
+    background: linear-gradient(145deg, #FFFFFF, #F1F4F8);
+}
+
+.cs-producto-cuerpo {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.cs-producto-nombre {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.cs-precio {
+    font-family: var(--cs-mono);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--cs-rojo-claro);
+}
+
+.cs-precio-grande {
+    font-family: var(--cs-mono);
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--cs-rojo);
+}
+
+.cs-stock-bajo {
+    color: #FF8A9B;
+    font-weight: 700;
+}
+
+.cs-categoria-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: var(--cs-carbon-2);
+    color: #C9CED6;
+    border: 1px solid var(--cs-borde);
+    padding: 0.2em 0.6em;
+    border-radius: 6px;
+}
+
+/* Pastillas de filtro */
+.cs-pill {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 2px solid #D2D7E0;
+    background: #FFFFFF;
+    color: var(--cs-texto);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    margin: 0 0.35rem 0.4rem 0;
+}
+
+.cs-pill:hover {
+    border-color: var(--cs-rojo);
+    color: var(--cs-rojo);
+}
+
+.cs-pill.activa {
+    background: var(--cs-carbon);
+    border-color: var(--cs-carbon);
+    color: #FFFFFF;
+}
+
+/* ---------- Codigos y badges ---------- */
+.cs-codigo {
+    font-family: var(--cs-mono);
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: #FFFFFF;
+    color: var(--cs-carbon);
+    border-left: 4px solid var(--cs-rojo);
+    padding: 0.4rem 0.75rem;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.cs-badge-estado {
+    font-family: var(--cs-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0.35em 0.6em;
+    border-radius: 6px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.cs-estado-PENDIENTE { background: var(--cs-ambar); }
+.cs-estado-CONFIRMADO { background: var(--cs-azul); }
+.cs-estado-ENVIADO { background: var(--cs-violeta); }
+.cs-estado-ENTREGADO { background: var(--cs-verde); }
+.cs-estado-CANCELADO { background: var(--cs-gris); }
+.cs-estado-APROBADO { background: var(--cs-verde); }
+.cs-estado-RECHAZADO { background: var(--cs-rojo); }
+.cs-estado-ACEPTADO { background: var(--cs-verde); }
+.cs-estado-ANULADO { background: var(--cs-gris); }
+
+.cs-tipo-BOLETA { background: var(--cs-azul); }
+.cs-tipo-FACTURA { background: var(--cs-violeta); }
+.cs-tipo-NOTA_CREDITO { background: var(--cs-rojo); }
+
+/* ---------- Tablas ---------- */
+.cs-tabla thead th {
+    background: var(--cs-carbon);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border: 0;
+    white-space: nowrap;
+}
+
+.cs-tabla td {
+    vertical-align: middle;
+}
+
+/* ---------- Linea de tiempo del pedido ---------- */
+.cs-timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cs-timeline li {
+    position: relative;
+    padding: 0 0 1.25rem 2rem;
+    color: var(--cs-texto-suave);
+}
+
+.cs-timeline li::before {
+    content: "";
+    position: absolute;
+    left: 0.3rem;
+    top: 0.3rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #C9CED6;
+}
+
+.cs-timeline li::after {
+    content: "";
+    position: absolute;
+    left: 0.6rem;
+    top: 1.1rem;
+    bottom: 0;
+    width: 2px;
+    background: #D9DEE7;
+}
+
+.cs-timeline li:last-child::after {
+    display: none;
+}
+
+.cs-timeline li.completado::before {
+    background: var(--cs-verde);
+}
+
+.cs-timeline li.activo {
+    color: var(--cs-texto);
+    font-weight: 700;
+}
+
+.cs-timeline li.activo::before {
+    background: var(--cs-rojo);
+    box-shadow: 0 0 0 4px rgba(217, 27, 56, 0.18);
+}
+
+/* ---------- Indicadores (KPI) ---------- */
+.cs-kpi {
+    background: var(--cs-carbon);
+    color: #FFFFFF;
+    border-radius: var(--cs-radio);
+    padding: 1rem 1.1rem;
+    border-left: 5px solid var(--cs-rojo);
+    box-shadow: var(--cs-sombra);
+    height: 100%;
+}
+
+.cs-kpi-etiqueta {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--cs-texto-carbon);
+}
+
+.cs-kpi-valor {
+    font-family: var(--cs-mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+    word-break: break-word;
+}
+
+/* ---------- Carrito lateral ---------- */
+.cs-carrito {
+    position: sticky;
+    top: 1rem;
+}
+
+.cs-carrito-item {
+    border-bottom: 1px dashed var(--cs-borde);
+    padding: 0.7rem 0;
+}
+
+.cs-carrito-item:last-child {
+    border-bottom: 0;
+}
+
+.cs-carrito-nombre {
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+
+.cs-carrito-total {
+    border-top: 2px solid var(--cs-rojo);
+    padding-top: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.cs-cantidad-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.cs-cantidad-control button {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 8px;
+}
+
+/* ---------- Acceso administrador ---------- */
+.cs-login-wrap {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cs-login-card {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* ---------- Pie de pagina ---------- */
+.cs-footer {
+    background: var(--cs-carbon);
+    color: var(--cs-texto-carbon);
+    font-size: 0.85rem;
+    border-top: 3px solid var(--cs-rojo);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* ---------- Ajustes para fondos oscuros ---------- */
+.cs-navbar .navbar-toggler {
+    border-color: #3A3F48;
+}
+
+.cs-navbar .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.cs-card .cs-precio-grande {
+    color: var(--cs-rojo-claro);
+}
+
+/* ---------- Comprobante y vistas de impresion ---------- */
+@media print {
+    body {
+        background: #FFFFFF;
+    }
+
+    .cs-no-imprimir,
+    .cs-navbar,
+    .cs-footer,
+    .btn {
+        display: none !important;
+    }
+
+    .cs-panel,
+    .cs-card {
+        box-shadow: none;
+        color: #000000;
+        background: #FFFFFF;
+        border: 1px solid #000000;
+    }
+}
+
+/* ---------- Adaptacion a telefonos ---------- */
+@media (max-width: 575.98px) {
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .cs-hero {
+        padding: 1.25rem 1rem;
+    }
+
+    .cs-producto-img {
+        height: 140px;
+    }
+
+    .cs-carrito {
+        position: static;
+    }
+
+    .cs-kpi-valor {
+        font-size: 1.25rem;
+    }
+
+    .cs-tabla-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Reportes: barras de proporción */
+.cs-barra {
+    height: 10px;
+    background: #E5E7EB;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.cs-barra-fill {
+    height: 100%;
+    background: var(--cs-rojo);
+    border-radius: 6px;
+}
+
+.cs-mini { width: 48px; height: 42px; object-fit: contain; background: var(--cs-fondo); border-radius: 6px; margin-right: .45rem; }
+.cs-interno { padding-left: 208px; }
+.cs-interno main.container { max-width: 1580px; padding-inline: clamp(14px, 2vw, 38px); }
+.cs-side { background: var(--cs-carbon); color: white; position: fixed; inset: 0 auto 0 0; width: 208px; padding: 2rem 1rem; overflow-y: auto; z-index: 50; }
+.cs-side-brand { color: white; font-size: 1.5rem; font-weight: 800; text-decoration: none; letter-spacing: -.05em; }
+.cs-side-brand span { color: #ff5067; }
+.cs-side-user { margin: 1rem 0 1.5rem; color: #bec6d1; font-size: .82rem; overflow-wrap: anywhere; }
+.cs-side nav { display: grid; gap: .25rem; }
+.cs-side nav a, .cs-side button { border: 0; background: transparent; display: block; padding: .65rem .55rem; color: #f4f6f9; font: inherit; text-decoration: none; border-radius: 6px; }
+.cs-side a:hover, .cs-side button:hover, .cs-side a:focus-visible, .cs-side button:focus-visible { color: white; background: #72202e; }
+@media (max-width: 991px) {
+    .cs-interno { padding-left: 0; }
+    .cs-side { position: static; width: auto; padding: 1rem; }
+    .cs-side nav { display: flex; flex-wrap: wrap; }
+    .cs-side-user { margin: .3rem 0; }
+}
+
+/* Paginación del catálogo CHERO.SAC */
+.cs-paginacion .page-link {
+    color: #1E2229;
+    border: 1px solid #D8DEE7;
+    border-radius: 9px !important;
+    min-width: 42px;
+    text-align: center;
+    font-weight: 700;
+    background: #FFFFFF;
+}
+.cs-paginacion .page-item.active .page-link {
+    background: var(--cs-rojo, #D91B38);
+    border-color: var(--cs-rojo, #D91B38);
+    color: #FFFFFF;
+}
+.cs-paginacion .page-item.disabled .page-link { color: #9AA3B2; background: #F1F3F6; }
+.cs-producto-img { border-bottom: 1px solid #EDF0F4; }
+
+/* =====================================================================
+   PANEL DEL PROPIETARIO - navegación y experiencia mejorada
+   ===================================================================== */
+body.cs-interno {
+    padding-left: 258px !important;
+    background: #F3F5F8;
+}
+
+body.cs-interno > .cs-admin-sidebar {
+    position: fixed !important;
+    inset: 0 auto 0 0 !important;
+    z-index: 1050 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 258px !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+    padding: 1.35rem 1rem 1rem !important;
+    color: #F8FAFC !important;
+    background: linear-gradient(180deg, #0D0F12 0%, #151922 58%, #0D0F12 100%) !important;
+    border-right: 1px solid #292E38 !important;
+    box-shadow: 8px 0 26px rgba(13, 15, 18, .10) !important;
+}
+
+.cs-admin-brand-block {
+    padding: .2rem .35rem 1.35rem;
+    border-bottom: 1px solid rgba(255,255,255,.10);
+}
+.cs-admin-brand {
+    display: flex !important;
+    align-items: center;
+    gap: .65rem;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    font-size: 1.42rem;
+    font-weight: 800;
+    letter-spacing: -.7px;
+    line-height: 1.1;
+}
+.cs-admin-brand:hover,
+.cs-admin-brand:visited { color: #FFFFFF !important; text-decoration: none !important; }
+.cs-admin-brand-accent { color: #FF4965 !important; }
+.cs-admin-brand-mark {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    color: #FFFFFF;
+    background: linear-gradient(145deg, #F02A4C, #A80F2D);
+    box-shadow: 0 7px 18px rgba(217,27,56,.28);
+    font-weight: 800;
+}
+.cs-admin-brand-caption {
+    display: block;
+    padding-left: 3.05rem;
+    margin-top: .28rem;
+    color: #9CA7B6;
+    font-family: var(--cs-mono);
+    font-size: .58rem;
+    letter-spacing: 1.3px;
+}
+.cs-admin-profile {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin: 1.25rem 0 1.45rem;
+    padding: .8rem .65rem;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 13px;
+    background: rgba(255,255,255,.045);
+}
+.cs-admin-avatar {
+    display: grid;
+    place-items: center;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #292E38;
+    color: #FFFFFF;
+    border: 2px solid #D91B38;
+    font-size: .78rem;
+    font-weight: 800;
+}
+.cs-admin-profile-copy { min-width: 0; display: flex; flex-direction: column; gap: .08rem; }
+.cs-admin-profile-copy strong {
+    overflow: hidden;
+    color: #FFFFFF;
+    font-size: .78rem;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cs-admin-profile-copy span { color: #AEB8C6; font-size: .69rem; }
+.cs-admin-profile-copy small { color: #73D69A; font-size: .67rem; }
+.cs-admin-profile-copy small i {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: .25rem;
+    border-radius: 50%;
+    background: #35C979;
+}
+.cs-admin-nav-caption {
+    padding: 0 .65rem .55rem;
+    color: #788394;
+    font-family: var(--cs-mono);
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.cs-admin-nav-caption-space { margin-top: 1.15rem; }
+.cs-admin-nav { display: grid !important; gap: .28rem !important; }
+.cs-admin-sidebar .cs-admin-nav-link,
+.cs-admin-sidebar .cs-admin-nav-link:visited {
+    display: flex !important;
+    align-items: center;
+    gap: .7rem;
+    min-height: 43px;
+    padding: .65rem .72rem !important;
+    color: #C9D0DA !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 10px !important;
+    text-decoration: none !important;
+    font-family: var(--cs-fuente) !important;
+    font-size: .82rem !important;
+    font-weight: 600 !important;
+    line-height: 1.25;
+    transition: background .16s ease, color .16s ease, border-color .16s ease;
+}
+.cs-admin-sidebar .cs-admin-nav-link:hover,
+.cs-admin-sidebar .cs-admin-nav-link:focus-visible {
+    color: #FFFFFF !important;
+    background: rgba(217,27,56,.16) !important;
+    border-color: rgba(217,27,56,.24) !important;
+    text-decoration: none !important;
+}
+.cs-admin-nav-icon {
+    display: grid;
+    place-items: center;
+    width: 25px;
+    height: 25px;
+    flex: 0 0 25px;
+    border-radius: 7px;
+    color: #FF6B80;
+    background: rgba(217,27,56,.11);
+    font-size: 1rem;
+    font-weight: 800;
+}
+.cs-admin-nav-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 23px;
+    height: 23px;
+    margin-left: auto;
+    padding: 0 .35rem;
+    border-radius: 99px;
+    color: #FFFFFF;
+    background: #D91B38;
+    font-family: var(--cs-mono);
+    font-size: .66rem;
+}
+.cs-admin-sidebar-bottom { margin-top: auto; padding-top: 1.25rem; }
+.cs-admin-sidebar .cs-admin-store-link,
+.cs-admin-sidebar .cs-admin-store-link:visited {
+    display: flex !important;
+    align-items: center;
+    gap: .55rem;
+    padding: .7rem .75rem !important;
+    margin-bottom: .5rem;
+    color: #E4E9F0 !important;
+    background: #1B2029 !important;
+    border: 1px solid #303743 !important;
+    border-radius: 10px !important;
+    font-size: .78rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+}
+.cs-admin-sidebar .cs-admin-store-link:hover { background: #242B36 !important; color: white !important; }
+.cs-admin-sidebar .cs-admin-store-link span { color: #FF657A; font-size: 1.05rem; }
+.cs-admin-sidebar .cs-admin-logout {
+    display: flex !important;
+    align-items: center;
+    gap: .55rem;
+    width: 100%;
+    padding: .7rem .75rem !important;
+    color: #FFFFFF !important;
+    background: #B81732 !important;
+    border: 1px solid #D91B38 !important;
+    border-radius: 10px !important;
+    font-family: var(--cs-fuente) !important;
+    font-size: .8rem !important;
+    font-weight: 700 !important;
+    text-align: left;
+}
+.cs-admin-sidebar .cs-admin-logout:hover { background: #D91B38 !important; }
+.cs-admin-sidebar .cs-admin-logout span { font-size: 1.1rem; }
+.cs-admin-sidebar-bottom > small {
+    display: block;
+    margin-top: .85rem;
+    color: #647083;
+    font-family: var(--cs-mono);
+    font-size: .57rem;
+    letter-spacing: .85px;
+    text-align: center;
+}
+
+body.cs-interno main.container.cs-contenido {
+    width: 100%;
+    max-width: 1640px !important;
+    padding: 1.65rem clamp(16px, 2.3vw, 38px) 2.5rem !important;
+}
+.cs-owner-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.4rem;
+    min-height: 164px;
+    padding: 1.8rem 1.65rem !important;
+    background: radial-gradient(circle at 93% 18%, rgba(217,27,56,.22), transparent 16%),
+                linear-gradient(115deg, #0D0F12 0%, #171B23 62%, #20202A 100%) !important;
+    border: 1px solid #282D36;
+    box-shadow: 0 12px 30px rgba(13,15,18,.12);
+}
+.cs-owner-hero-copy { max-width: 770px; position: relative; z-index: 1; }
+.cs-owner-hero-copy h1 { margin-bottom: .45rem !important; letter-spacing: -.6px; }
+.cs-owner-hero-copy p:not(.cs-eyebrow) { max-width: 760px; color: #C7CFDA !important; line-height: 1.65; }
+.cs-owner-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; position: relative; z-index: 1; }
+.cs-owner-date { color: #AAB4C2; font-size: .76rem; }
+.cs-owner-hero .btn { border-radius: 10px; padding: .7rem 1rem; }
+.cs-owner-pending { min-height: 82px; border-left: 4px solid var(--cs-rojo); }
+.cs-owner-pending-icon {
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    border-radius: 12px;
+    color: #D91B38;
+    background: #FFF0F2;
+    font-size: 1.45rem;
+    font-weight: 800;
+}
+.cs-owner-pending-number { display: flex; align-items: baseline; gap: .45rem; color: var(--cs-rojo); }
+.cs-owner-pending-number strong { font-family: var(--cs-mono); font-size: 1.9rem; line-height: 1; }
+.cs-owner-pending-number span { color: #6B7280; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+
+.cs-admin-status-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: .7rem;
+}
+.cs-admin-status-item {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    min-width: 0;
+    padding: .78rem .85rem;
+    background: #FFFFFF;
+    border: 1px solid #E3E7EE;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(13,15,18,.045);
+    color: #596170;
+    font-size: .76rem;
+    font-weight: 600;
+}
+.cs-admin-status-item strong { margin-left: auto; color: #15171C; font-family: var(--cs-mono); font-size: 1.05rem; }
+.cs-admin-status-dot { width: 9px; height: 9px; flex: 0 0 9px; border-radius: 50%; background: #9CA3AF; }
+.status-pendiente .cs-admin-status-dot { background: #D99725; }
+.status-confirmado .cs-admin-status-dot { background: #2563EB; }
+.status-enviado .cs-admin-status-dot { background: #7C3AED; }
+.status-entregado .cs-admin-status-dot { background: #16A34A; }
+.status-cancelado .cs-admin-status-dot { background: #89909B; }
+.cs-demo-note {
+    display: flex;
+    align-items: flex-start;
+    gap: .65rem;
+    padding: .85rem 1rem;
+    color: #5D6470;
+    background: #FFF9E9;
+    border: 1px solid #F0E1B9;
+    border-radius: 11px;
+    font-size: .78rem;
+    line-height: 1.55;
+}
+.cs-demo-note strong { color: #7B571A; }
+.cs-demo-note-icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 21px;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    color: #FFFFFF;
+    background: #BD851B;
+    font-size: .73rem;
+    font-weight: 800;
+}
+.cs-demo-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: .18rem .42rem;
+    border: 1px solid #F2D28B;
+    border-radius: 5px;
+    color: #805B16;
+    background: #FFF2CC;
+    font-family: var(--cs-mono);
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .4px;
+    line-height: 1.35;
+}
+.cs-row-demo td { background: #FFFCF4 !important; }
+.cs-admin-empty { color: #4B5563; }
+.cs-admin-empty-icon { margin-bottom: .3rem; color: #D91B38; font-size: 2rem; }
+.cs-admin-empty strong { display: block; color: #252A33; }
+.cs-admin-empty p { margin: .35rem 0 0; font-size: .85rem; }
+.cs-admin-empty .btn { margin-top: .8rem; }
+.cs-admin-status-grid + .cs-demo-note { margin-top: -.2rem; }
+
+@media (max-width: 1199.98px) {
+    .cs-admin-status-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 991.98px) {
+    body.cs-interno { padding-left: 0 !important; }
+    body.cs-interno > .cs-admin-sidebar {
+        position: relative !important;
+        width: 100% !important;
+        min-height: auto !important;
+        padding: .85rem 1rem !important;
+        border-right: 0 !important;
+        border-bottom: 3px solid var(--cs-rojo) !important;
+    }
+    .cs-admin-brand-block { display: flex; align-items: center; justify-content: space-between; gap: .6rem; padding-bottom: .7rem; }
+    .cs-admin-brand-caption { margin: 0; padding: 0; }
+    .cs-admin-profile { margin: .65rem 0; padding: .5rem .65rem; }
+    .cs-admin-nav { display: flex !important; flex-wrap: wrap; gap: .3rem !important; }
+    .cs-admin-nav-caption { padding-top: .4rem; }
+    .cs-admin-nav-caption-space { width: 100%; margin-top: .35rem; }
+    .cs-admin-sidebar .cs-admin-nav-link { min-height: 37px; padding: .45rem .55rem !important; font-size: .74rem !important; }
+    .cs-admin-nav-icon { width: 22px; height: 22px; flex-basis: 22px; }
+    .cs-admin-sidebar-bottom { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; margin-top: .7rem; padding-top: .65rem; border-top: 1px solid rgba(255,255,255,.1); }
+    .cs-admin-sidebar-bottom form { flex: 0 0 auto; }
+    .cs-admin-sidebar .cs-admin-store-link { margin: 0; }
+    .cs-admin-sidebar .cs-admin-logout { width: auto; }
+    .cs-admin-sidebar-bottom > small { margin: 0 0 0 auto; }
+    body.cs-interno main.container.cs-contenido { padding-top: 1.1rem !important; }
+}
+@media (max-width: 575.98px) {
+    .cs-admin-status-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cs-admin-status-item { padding: .65rem .55rem; font-size: .68rem; }
+    .cs-owner-hero { padding: 1.25rem 1rem !important; }
+    .cs-owner-hero-actions { align-items: flex-start; flex-direction: column; }
+    .cs-owner-pending { align-items: flex-start !important; }
+}
+
+.cs-order-product-line { display: flex; align-items: center; gap: .5rem; min-width: 220px; }
+.cs-order-product-line > span { flex: 1; min-width: 0; line-height: 1.35; }
+.cs-order-thumb { width: 38px; height: 38px; flex: 0 0 38px; object-fit: contain; padding: 3px; border: 1px solid #E6EAF0; border-radius: 8px; background: #F8FAFC; }

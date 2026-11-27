@@ -1,0 +1,27 @@
+CHERO.SAC - CATÁLOGO, MARCAS Y PANEL DEL PROPIETARIO
+====================================================
+
+1. Catálogo con 48 productos activos en 3 páginas de 16 artículos.
+2. Productos de marcas variadas: AMD Ryzen, Intel Core, NVIDIA GeForce, AMD Radeon, ASUS, MSI, Kingston, Corsair, Samsung, Logitech, HyperX, Lenovo, HP, LG, TP-Link y más.
+3. Imágenes locales referenciales en src/main/webapp/img/productos/; no dependen de enlaces externos.
+4. Búsqueda y filtro por categoría mantienen sus parámetros al cambiar de página.
+5. El panel del propietario incluye una barra lateral renovada, textos corregidos, resumen por estado y miniaturas de los artículos de cada pedido.
+6. Diez pedidos DEMO para exposición académica: pendientes, confirmados, enviados, entregados y cancelados.
+7. Los pedidos DEMO muestran una etiqueta visible, no son ventas reales y no alteran el inventario.
+8. El catálogo, el panel y la paginación usan la misma base PostgreSQL.
+
+ACTUALIZACIÓN DE BASE DE DATOS EXISTENTE
+---------------------------------------
+Ejecute después de migrar la base antigua y aplicar ampliar_catalogo_36.sql:
+
+psql -U postgres -d chero_sac -W -f base_de_datos/catalogo_marcas_y_pedidos_demo.sql
+
+El script es idempotente. No borra tablas, productos, pedidos ni inventario existente.
+
+DESPLIEGUE
+----------
+Desde la carpeta que contiene pom.xml ejecute mvn clean package.
+Copie target/CheroSacWeb.war a Tomcat 10.1/webapps y reinicie Tomcat.
+
+Nota: las imágenes son referenciales generadas para el prototipo académico, no fotografías
+oficiales de los fabricantes.
