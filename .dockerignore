@@ -1,0 +1,15 @@
+.git
+.github
+.vscode
+.idea
+.settings
+.project
+.classpath
+target
+*.war
+*.zip
+*.dump
+*.backup
+chero_sac_neon.sql
+.env
+.env.*

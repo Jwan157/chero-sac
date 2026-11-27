@@ -1,0 +1,10 @@
+target/
+.vercel/
+.env
+.env.*
+!.env.example
+*.dump
+*.backup
+chero_sac_neon.sql
+.DS_Store
+Thumbs.db

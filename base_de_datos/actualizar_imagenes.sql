@@ -1,3 +1,4 @@
+\encoding UTF8
 -- Cambia las imágenes de demostración a archivos locales (no borra datos).
 -- Ejecutar conectado a la base chero_sac.
 

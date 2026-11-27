@@ -1,3 +1,4 @@
+\encoding UTF8
 -- Aplicar sobre la base existente con su usuario de gestión:
 -- psql -U postgres -d chero_sac -v propietario=admin -f migrar_desde_original.sql
 -- Indique el nombre de un usuario interno activo que deba asumir el rol DUENO.

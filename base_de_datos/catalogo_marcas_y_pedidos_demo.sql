@@ -1,3 +1,4 @@
+\encoding UTF8
 -- =====================================================================
 -- CHERO.SAC | Catálogo de marcas + pedidos de demostración
 -- Aplicar sobre chero_sac DESPUÉS de migrar_desde_original.sql y

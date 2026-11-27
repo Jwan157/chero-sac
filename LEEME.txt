@@ -1,0 +1,128 @@
+CHERO.SAC · Java Web / Maven / PostgreSQL
+=========================================
+
+VERSIÓN ACTUALIZADA
+-------------------
+- Catálogo: 48 productos, distribuidos en 3 páginas de 16 artículos.
+- Marcas/modelos: AMD Ryzen, Intel Core, NVIDIA GeForce, AMD Radeon, ASUS,
+  MSI, Kingston, Corsair, Samsung, Logitech, HyperX, Lenovo, HP, LG y TP-Link.
+- Imágenes locales referenciales, almacenadas en src/main/webapp/img/productos/.
+- Panel del propietario con navegación lateral, textos corregidos, indicadores
+  por estado y miniaturas de los productos incluidos en cada pedido.
+- Diez pedidos DEMO con clientes y detalles: pendientes, confirmados, enviados,
+  entregados y cancelados. Se identifican en el panel y no alteran el stock.
+
+INSTALACIÓN NUEVA
+-----------------
+1. Extraiga el ZIP y abra en NetBeans la carpeta CheroSacWeb que contiene pom.xml.
+2. Configure JDK 17 o superior, PostgreSQL 14+ y Apache Tomcat 10.1.
+3. Cree el esquema inicial (incluye 36 productos):
+
+   psql -U postgres -d postgres -f base_de_datos/chero_sac_completo.sql
+
+4. Complete el catálogo a 48 productos y cargue pedidos de demostración:
+
+   psql -U postgres -d chero_sac -W -f base_de_datos/catalogo_marcas_y_pedidos_demo.sql
+
+5. Configure la conexión JDBC y compile/despliegue la aplicación.
+
+ACTUALIZACIÓN DE UNA BASE DE DATOS ANTIGUA
+-----------------------------------------
+Si ya tenía la versión anterior del proyecto y el esquema original de 11 tablas:
+
+1. Haga una copia de seguridad y detenga Tomcat.
+2. Ejecute la migración una sola vez, indicando qué usuario activo será el dueño.
+   En este ejemplo se asigna el rol de propietario al usuario admin:
+
+   psql -U postgres -d chero_sac -v propietario=admin -f base_de_datos/migrar_desde_original.sql
+
+3. Amplíe el catálogo original de 8 productos a 36:
+
+   psql -U postgres -d chero_sac -f base_de_datos/ampliar_catalogo_36.sql
+
+4. Ejecute el script de marcas y datos de demostración para llegar a 48 productos:
+
+   psql -U postgres -d chero_sac -W -f base_de_datos/catalogo_marcas_y_pedidos_demo.sql
+
+Si ya ejecutó los pasos 1–3 anteriormente, en esta versión solo necesita el paso 4.
+Los scripts de ampliación son idempotentes: no reinician la base y no duplican
+productos ni pedidos DEMO. No vuelva a ejecutar el script de instalación inicial
+sobre una base que ya contiene información.
+
+CORRECCIÓN DE ACENTOS Y DOCUMENTOS PDF DE DEMOSTRACIÓN
+-----------------------------------------------------
+Después de cargar los pedidos DEMO, ejecute una vez este script:
+
+   psql -h 127.0.0.1 -U postgres -d chero_sac -W -f base_de_datos/corregir_utf8_y_comprobantes_demo.sql
+
+El script fija la codificación UTF-8 para psql, repara textos guardados con doble
+codificación (por ejemplo, JosÃ© -> José) y genera documentos internos para los
+pedidos DEMO que todavía no tienen uno. Es seguro volver a ejecutarlo: no duplica
+los documentos ni modifica las existencias.
+
+CONEXIÓN A POSTGRESQL
+---------------------
+CHERO_DB_URL       Por defecto jdbc:postgresql://localhost:5432/chero_sac
+CHERO_DB_USER      Por defecto postgres
+CHERO_DB_PASSWORD  Contraseña del usuario PostgreSQL
+CHERO_IMAGENES_DIR Directorio persistente opcional para fotos cargadas por el personal.
+
+Para establecer la contraseña de PostgreSQL desde PowerShell antes de arrancar Tomcat,
+sin escribirla directamente en el comando:
+
+   $clave = Read-Host "Contraseña PostgreSQL" -AsSecureString
+   $env:CHERO_DB_PASSWORD = [System.Net.NetworkCredential]::new("", $clave).Password
+
+Arranque Tomcat desde esa misma ventana de PowerShell para que herede la variable.
+
+COMPILACIÓN Y DESPLIEGUE
+-----------------------
+Desde la carpeta que contiene pom.xml:
+
+   mvn clean package
+
+Copie target/CheroSacWeb.war a la carpeta webapps de Tomcat 10.1 e inicie/reinicie
+el servidor. La dirección local es:
+
+   http://localhost:8080/CheroSacWeb/
+
+El panel del propietario está disponible en:
+
+   http://localhost:8080/CheroSacWeb/admin/pedidos
+
+CUENTAS DE LA INSTALACIÓN NUEVA
+-------------------------------
+Dueño     /login     dueno      DuenoChero26!
+Empleado  /login     vendedor1  VentasChero26!
+Cliente   /cliente   76543210   ClienteChero26!
+
+En una base migrada, las credenciales de los usuarios existentes se conservan.
+El usuario indicado en -v propietario pasa a DUENO; los demás pasan a ADMIN.
+
+PEDIDOS DE DEMOSTRACIÓN
+-----------------------
+El script catalogo_marcas_y_pedidos_demo.sql crea diez pedidos con códigos
+CH-2026-900001 a CH-2026-900010. Incluye los estados PENDIENTE, CONFIRMADO,
+ENVIADO, ENTREGADO y CANCELADO. El panel los marca como DEMO. Sirven para que
+el docente pueda revisar filtros, estados, clientes, métodos de pago y detalles.
+No representan operaciones comerciales reales, no descuentan existencias ni
+reponen stock al ser cancelados. Las métricas semanales del panel los incluyen;
+la nota visible en el panel aclara que se trata de información de demostración.
+
+IMÁGENES Y COMPROBANTES
+----------------------
+Las imágenes incorporadas son referenciales generadas para el prototipo académico;
+no son fotografías oficiales de los fabricantes ni acreditan disponibilidad comercial.
+Los PDF y correlativos son documentos internos de demostración. Se muestran con un
+formato comercial ordenado, pero no constituyen boletas o facturas electrónicas
+autorizadas: la aplicación no firma ni transmite comprobantes a SUNAT y no obtiene
+una Constancia de Recepción (CDR). El RUC y domicilio fiscal del emisor deben
+configurarse antes de cualquier uso comercial real.
+
+MIGRACIÓN DE CLIENTES
+---------------------
+Para que un cliente migrado active su cuenta, el responsable de la base puede emitir
+una clave después de verificar su identidad. El script muestra la clave una sola vez.
+Entréguela al titular por un canal privado:
+
+   psql -U postgres -d chero_sac -v documento=12345678 -f base_de_datos/vincular_cliente.sql

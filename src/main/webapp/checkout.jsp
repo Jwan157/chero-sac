@@ -94,7 +94,7 @@
                     <div class="col-md-6">
                         <span class="form-label d-block">Comprobante</span>
                         <div class="border rounded-3 p-2 small fw-semibold" id="etiquetaComprobante">
-                            Boleta de venta electrónica (serie B001)
+                            Boleta interna de venta (serie B001)
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -111,7 +111,7 @@
 
                 <input type="hidden" name="carrito" id="carritoOculto" value="">
                 <button class="btn btn-cs btn-lg w-100 mt-4" type="submit" id="btnConfirmar">Confirmar pedido</button>
-                <p class="small text-muted mt-2 mb-0">Al confirmar se genera su código de seguimiento y el comprobante electrónico.</p>
+                <p class="small text-muted mt-2 mb-0">Al confirmar se registra su pedido y se genera un documento interno de venta en PDF. No es un comprobante autorizado por SUNAT.</p>
             </form>
         </div>
 
@@ -220,8 +220,8 @@ function miniatura(item) {
         numero.maxLength = ruc ? 11 : 8;
         numero.placeholder = ruc ? '11 dígitos' : '8 dígitos';
         document.getElementById('etiquetaComprobante').textContent = ruc
-            ? 'Factura electrónica (serie F001)'
-            : 'Boleta de venta electrónica (serie B001)';
+            ? 'Factura interna de venta (serie F001)'
+            : 'Boleta interna de venta (serie B001)';
     }
 
     document.addEventListener('DOMContentLoaded', function () {

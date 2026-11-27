@@ -185,25 +185,39 @@
             </div>
 
             <div class="col-lg-5">
-                <section class="cs-panel mb-4">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h2 class="mb-0">Comprobantes</h2>
-                        <button type="button" class="btn btn-sm btn-cs-negro cs-no-imprimir" onclick="window.print()">Imprimir</button>
+                <section class="cs-panel mb-4 cs-receipt-list">
+                    <div class="mb-2">
+                        <h2 class="mb-1">Comprobantes de venta</h2>
+                        <p class="small text-muted mb-0">Consulta el documento interno asociado a este pedido. Puedes abrirlo e imprimirlo desde el visor PDF.</p>
                     </div>
                     <c:forEach var="comp" items="${comprobantes}">
-                        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 border-bottom py-2">
-                            <div>
-                                <span class="cs-badge-estado cs-tipo-${comp.tipoComprobante}">${comp.tipoComprobante}</span>
-                                <span class="cs-mono small ms-1"><c:out value="${comp.numeroCompleto}"/></span>
-                                <span class="cs-badge-estado cs-estado-${comp.estadoSunat} ms-1">${comp.estadoSunat} · simulado</span>
+                        <div class="cs-receipt-row d-flex flex-wrap justify-content-between align-items-center gap-2 border-bottom py-3">
+                            <div class="d-flex flex-column gap-1">
+                                <strong>
+                                    <c:choose>
+                                        <c:when test="${comp.tipoComprobante == 'FACTURA'}">Factura interna</c:when>
+                                        <c:when test="${comp.tipoComprobante == 'NOTA_CREDITO'}">Nota de crédito interna</c:when>
+                                        <c:otherwise>Boleta interna</c:otherwise>
+                                    </c:choose>
+                                </strong>
+                                <span class="cs-mono small"><c:out value="${comp.numeroCompleto}"/></span>
+                                <span class="small text-muted">
+                                    <c:choose>
+                                        <c:when test="${comp.estadoSunat == 'ANULADO'}">Registro de demostración · Anulado</c:when>
+                                        <c:otherwise>Registro interno de demostración · No enviado a SUNAT</c:otherwise>
+                                    </c:choose>
+                                </span>
                             </div>
                             <a class="btn btn-sm btn-cs-outline cs-no-imprimir" target="_blank" rel="noopener"
-                               href="${ctx}/comprobante-pdf?codigo=${fn:escapeXml(pedido.codigoSeguimiento)}&amp;documento=${fn:escapeXml(pedido.clienteNumeroDocumento)}&amp;id=${comp.idComprobante}">Ver PDF</a>
+                               href="${ctx}/comprobante-pdf?codigo=${fn:escapeXml(pedido.codigoSeguimiento)}&amp;documento=${fn:escapeXml(pedido.clienteNumeroDocumento)}&amp;id=${comp.idComprobante}">
+                                Ver / descargar PDF
+                            </a>
                         </div>
                     </c:forEach>
                     <c:if test="${empty comprobantes}">
-                        <p class="small text-muted mb-0">Aún no hay comprobantes emitidos para este pedido.</p>
+                        <p class="small text-muted mb-0">Todavía no se ha generado un documento para este pedido. Cuando el sistema registre la venta, aparecerá aquí.</p>
                     </c:if>
+                    <p class="cs-receipt-disclaimer small mb-0 mt-3">Aviso: los documentos de esta instalación son demostrativos y no tienen validez tributaria. La integración con SUNAT no está habilitada.</p>
                 </section>
 
                 <section class="cs-panel">

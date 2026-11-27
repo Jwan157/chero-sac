@@ -25,3 +25,8 @@ Copie target/CheroSacWeb.war a Tomcat 10.1/webapps y reinicie Tomcat.
 
 Nota: las imágenes son referenciales generadas para el prototipo académico, no fotografías
 oficiales de los fabricantes.
+
+
+9. Codificación UTF-8 declarada en filtro, JSP, fragmentos JSPF y etiquetas; se incluye una migración para reparar textos guardados con doble codificación.
+10. Comprobantes PDF internos con diseño comercial, tabla de detalle, desglose de base imponible e IGV, y aviso visible de que no tienen validez tributaria ni conexión con SUNAT.
+11. Pedidos DEMO con documentos internos disponibles desde el seguimiento mediante el enlace Ver / descargar PDF.

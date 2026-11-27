@@ -28,11 +28,18 @@ public class AuthFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         req.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
         String ruta = req.getServletPath();
+
+        // Los recursos binarios (imágenes, CSS y JS) conservan su tipo MIME propio.
+        // Para las páginas y vistas dinámicas se declara UTF-8 tanto en la cabecera HTTP
+        // como en el documento HTML; esto evita textos como nombres y acentos españoles mal interpretados.
         if (ruta.startsWith("/img/") || ruta.startsWith("/css/") || ruta.startsWith("/js/")) {
             chain.doFilter(req, resp);
             return;
+        }
+        resp.setCharacterEncoding("UTF-8");
+        if (!"/comprobante-pdf".equals(ruta)) {
+            resp.setContentType("text/html; charset=UTF-8");
         }
         resp.setHeader("Cache-Control", "no-store");
         HttpSession sesion = req.getSession();

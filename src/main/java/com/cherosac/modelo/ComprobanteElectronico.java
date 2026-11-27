@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Comprobante electronico: BOLETA (DNI), FACTURA (RUC) o NOTA_CREDITO.
+ * Documento de venta interno: BOLETA (DNI), FACTURA (RUC) o NOTA_CREDITO.
  * Los precios del sistema incluyen IGV (18%); el subtotal se obtiene por desglose.
- * El hash es una huella SHA-256 interna; no se transmite a SUNAT.
+ * La huella SHA-256 es interna; no se transmite ni se valida en SUNAT.
  */
 public class ComprobanteElectronico {
 
@@ -41,7 +41,7 @@ public class ComprobanteElectronico {
         return totalConIgv.divide(FACTOR_IGV, 2, RoundingMode.HALF_UP);
     }
 
-    /** Tipo de comprobante que corresponde al tipo de documento del cliente. */
+    /** Tipo de documento interno que corresponde al documento del cliente. */
     public static String tipoPorTipoDocumento(String tipoDocumento) {
         return "RUC".equals(tipoDocumento) ? "FACTURA" : "BOLETA";
     }

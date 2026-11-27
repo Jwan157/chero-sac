@@ -1,3 +1,4 @@
+\encoding UTF8
 -- CHERO.SAC - Catálogo ampliado a 36 productos.
 -- Ejecutar conectado a chero_sac DESPUÉS de migrar_desde_original.sql.
 -- No borra ni reinicia las tablas existentes. Puede ejecutarse más de una vez.
